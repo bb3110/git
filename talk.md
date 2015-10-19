@@ -2,7 +2,7 @@
 
 ## Olav Vahtras
 
-Leiden Workshop 2015-04-13
+Computational Python
 
 ---
 
