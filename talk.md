@@ -70,10 +70,10 @@ $ cp -r Project Project.save.v2.new
 ### RCS (Revision Control System)
 
 * A file-level local version control system
+* Can be used by multiple collaborators on a shared file system
 
 ```bash
 $ date > latest_update.txt
-
 $ ci latest_update.txt
 latest_update.txt,v  <--  latest_update.txt
 enter description, terminated with single '.' or end of file:
@@ -81,37 +81,27 @@ NOTE: This is NOT the log message!
 >> .
 initial revision: 1.1
 done
-
+```
+```
 $ ls -l
 -r--r--r-- 1 olav olav 207 Apr 13 05:24 latest_update.txt,v
-
+```
+```
 $ co -l ./latest_update.txt 
 ./latest_update.txt,v  -->  ./latest_update.txt
 revision 1.1 (locked)
 done
-
-$ date > latest_update.txt
-
-$ ci ./latest_update.txt 
-./latest_update.txt,v  <--  ./latest_update.txt
-new revision: 1.2; previous revision: 1.1
-enter log message, terminated with single '.' or end of file:
->> .
-
 ```
-* Can be used by multiple collaborators on a shared file system
-
 ---
+
 ## Version control systems of the past
 ### CVS (Concurrent Versions System)
 
 * First project-level (> 1 file) version-control
-
 * A central server
-
 * Users could checkout project files to work with
-
 * Users needed contact with the server to save work and compare work
+
 ---
 
 ## Version control systems of the past
@@ -119,11 +109,8 @@ enter log message, terminated with single '.' or end of file:
 ### Subversion (svn)
 
 * An improvement over CVS
-
 * When a user checks out a project a local reference is maintained
-
 * Development branches are possible (main called trunk)
-
 * Merging branches
 
 ---
@@ -133,13 +120,9 @@ enter log message, terminated with single '.' or end of file:
 <img src="http://www.linux.com/images/stories/714/Linus-Torvalds-LinuxCon-Europe-2014.jpg" height="250" />
 
 * Written by Linus Thorvalds, originally for the Linux kernel
-
 * A distributed VCS
-
 * Several servers have all information
-
 * Any one can be chosen as the reference version
-
 * One of the most popular frameworks today (others: bazaar, mercurial)
 
 ---
@@ -149,11 +132,8 @@ enter log message, terminated with single '.' or end of file:
 #### Why
 
 * For source code development
-
 * For manuscripts
-
 * In single-user projects
-
 * In collaborative projects
 
 `Practically always`
@@ -161,9 +141,7 @@ enter log message, terminated with single '.' or end of file:
 #### Benefits
 
 * No history is lost
-
 * All versions of your documents are preserved
-
 * Easy to backup to other sites
 
 
@@ -331,9 +309,11 @@ To see the commit history of the project files
 	First hello
 ```
 
+---
+
 ### Viewing changes
 
-* Consdier a modified file
+* Consider a modified file
 ```
     $ cat << EOF > hello.py
     print "Hello there world!"
@@ -351,8 +331,6 @@ To see the commit history of the project files
 
     no changes added to commit (use "git add" and/or "git commit -a")
 ```
-
-### Viewing changes
 ```
     $ git diff
     diff --git a/hello.py b/hello.py
@@ -363,23 +341,25 @@ To see the commit history of the project files
     -print "Hello world!"
     +print "Hello there world!"
 ```
-
+---
 ```
     $ git difftool
-
-.. figure:: _static/git_difftool.png
 ```
+
+<img src=" _static/git_difftool.png"/>
 
 ---
 
 ### Update repository
-```
+```bash
     $ git add hello.py
-
+```
+```bash
     $ git commit -m "Change greeting"
     [master f7efe62] Change greeting
      1 file changed, 1 insertion(+), 1 deletion(-)
-
+```
+```bash
     $ git log
     commit f7efe62016fcd70fbdbd2232f9086bfd96aaf413
     Author: First Last <first.last@isp.com>
@@ -392,15 +372,15 @@ To see the commit history of the project files
     Date:   Thu Oct 16 17:32:45 2014 +0200
 
         First hello
-
 ```
+
 ---
 
 ### Graphical frontends
 ```
     $ gitg
 ```
-<img src="img/gitg.png" />
+<center><img src="img/gitg.png" height="480"/></center>
 
 ---
 
@@ -420,6 +400,8 @@ To see the commit history of the project files
       git checkout -b new_branch_name
 
     HEAD is now at edf197e... First hello
+```
+```
     $ cat hello.py
     print "Hello world!"
 ```
@@ -456,16 +438,10 @@ To see the commit history of the project files
 ### Remote repositories
 
 * Necessary for collaborative projects
-
 * Useful for single-user projects
-
 * Web-services, github, bitbucket
-
 * A shared directory (NFS, AFS, Dropbox....)
-
-
 * git pull from remote
-
 * git push to remote
 
 ```
@@ -496,16 +472,16 @@ work directory     <- init, clone
 
 * Create an alias for the remote repository
 ```
-    $ git remote add origin ~/Dropbox/hello.git
+    $ git remote add dropbox ~/Dropbox/hello.git
     $ git remote -v
-    origin	/home/olav/Dropbox/proj.git (fetch)
-    origin	/home/olav/Dropbox/proj.git (push)
+    dropbox	/home/olav/Dropbox/proj.git (fetch)
+    dropbox	/home/olav/Dropbox/proj.git (push)
 ```
 --
 
 * Let the local branch track the remote repository
 ```
-    $ git push -u origin master
+    $ git push -u dropbox master
     Counting objects: 6, done.
     Delta compression using up to 4 threads.
     Compressing objects: 100% (2/2), done.
@@ -513,7 +489,7 @@ work directory     <- init, clone
     Total 6 (delta 0), reused 0 (delta 0)
     To /home/olav/Dropbox/proj.git
      * [new branch]      master -> master
-    Branch master set up to track remote branch master from origin.
+    Branch master set up to track remote branch master from dropbox.
 ```
 
 ---
@@ -629,7 +605,6 @@ work directory     <- init, clone
 ### Use a remote server (service)
 
 * github.com (free for public projects)
-
 * gitlab.com  (free for public and private projects)
 
 ### Links
