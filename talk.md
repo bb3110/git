@@ -346,7 +346,7 @@ To see the commit history of the project files
     $ git difftool
 ```
 
-<img src=" _static/git_difftool.png"/>
+<img src="img/git_difftool.png"/>
 
 ---
 
