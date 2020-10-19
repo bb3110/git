@@ -5,9 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
     <style type="text/css">
-      @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
-      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
       body {
         font-family: 'Droid Serif';
@@ -118,6 +118,9 @@
         padding-top: 1em;
       }
     </style>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
 
   </head>
   <body>
@@ -127,6 +130,20 @@
     <script>
         
     </script>
+    <style>
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<link rel="stylesheet" href="/refreeze/js/highlight/styles/gruvbox-light.css">
+<script src="/refreeze/js/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
     <textarea id="source">
 name: inverse
 layout: true
@@ -170,7 +187,7 @@ layout: false
 
 * The history of a project is a sequence of versions
 ```
-1 -&gt; 2 -&gt; 3 ...
+1 -> 2 -> 3 ...
 ```
 
 * At any point in time we can go back to a previous version
@@ -182,7 +199,7 @@ layout: false
 
 ## Why use version control
 
-&lt;img src=&#34;http://www.phdcomics.com/comics/archive/phd101212s.gif&#34; height=&#34;500&#34;/&gt;
+<img src="http://www.phdcomics.com/comics/archive/phd101212s.gif" height="500"/>
 
 ---
 
@@ -209,12 +226,12 @@ $ cp -r Project Project.save.v2.new
 * Can be used by multiple collaborators on a shared file system
 
 ```bash
-$ date &gt; latest_update.txt
+$ date > latest_update.txt
 $ ci latest_update.txt
-latest_update.txt,v  &lt;--  latest_update.txt
-enter description, terminated with single &#39;.&#39; or end of file:
+latest_update.txt,v  <--  latest_update.txt
+enter description, terminated with single '.' or end of file:
 NOTE: This is NOT the log message!
-&gt;&gt; .
+>> .
 initial revision: 1.1
 done
 ```
@@ -224,7 +241,7 @@ $ ls -l
 ```
 ```
 $ co -l ./latest_update.txt 
-./latest_update.txt,v  --&gt;  ./latest_update.txt
+./latest_update.txt,v  -->  ./latest_update.txt
 revision 1.1 (locked)
 done
 ```
@@ -233,7 +250,7 @@ done
 ## Version control systems of the past
 ### CVS (Concurrent Versions System)
 
-* First project-level (&gt; 1 file) version-control
+* First project-level (> 1 file) version-control
 * A central server
 * Users could checkout project files to work with
 * Users needed contact with the server to save work and compare work
@@ -253,7 +270,7 @@ done
 
 ## Introducing git
 
-&lt;img src=&#34;http://www.linux.com/images/stories/714/Linus-Torvalds-LinuxCon-Europe-2014.jpg&#34; height=&#34;250&#34; /&gt;
+<img src="http://www.linux.com/images/stories/714/Linus-Torvalds-LinuxCon-Europe-2014.jpg" height="250" />
 
 * Written by Linus Thorvalds, originally for the Linux kernel
 * A distributed VCS
@@ -288,8 +305,8 @@ done
 
 #### The first time around
 ```
-    $ git config --global user.name &#34;First Last&#34;
-    $ git config --global user.email &#34;first.last@isp.com&#34;
+    $ git config --global user.name "First Last"
+    $ git config --global user.email "first.last@isp.com"
 ```
 
 Creates a configuration file ``~/.gitconfig``
@@ -326,7 +343,7 @@ Creates a configuration file ``~/.gitconfig``
 
     Initial commit
 
-    nothing to commit (create/copy files and use &#34;git add&#34; to track)
+    nothing to commit (create/copy files and use "git add" to track)
 ```
 
 ---
@@ -335,8 +352,8 @@ Creates a configuration file ``~/.gitconfig``
 
 * Create a new file
 ```
-    $ cat &lt;&lt; EOF &gt; hello.py
-    print &#34;Hello world!&#34;
+    $ cat << EOF > hello.py
+    print "Hello world!"
     EOF
     $ python hello.py
     Hello world!
@@ -349,11 +366,11 @@ Creates a configuration file ``~/.gitconfig``
     Initial commit
 
     Untracked files:
-      (use &#34;git add &lt;file&gt;...&#34; to include in what will be committed)
+      (use "git add <file>..." to include in what will be committed)
 
 	    hello.py
 
-    nothing added to commit but untracked files present (use &#34;git add&#34; to track)
+    nothing added to commit but untracked files present (use "git add" to track)
 ```
 
 ---
@@ -372,7 +389,7 @@ Creates a configuration file ``~/.gitconfig``
     Initial commit
 
     Changes to be committed:
-      (use &#34;git rm --cached &lt;file&gt;...&#34; to unstage)
+      (use "git rm --cached <file>..." to unstage)
 
 	    new file:   hello.py
 ```
@@ -386,7 +403,7 @@ Creates a configuration file ``~/.gitconfig``
 ### The repository
 * Save the latest changes in the local repository (``.git`` directory)
 ```
-    $ git commit -m &#34;First hello&#34;
+    $ git commit -m "First hello"
     [master (root-commit) edf197e] First hello
      1 file changed, 1 insertion(+)
      create mode 100644 hello.py
@@ -401,7 +418,7 @@ Creates a configuration file ``~/.gitconfig``
 ---
 
 ### The work cycle
-There are three levels, from &#34;lowest&#34;
+There are three levels, from "lowest"
 
 * The work directory
 * The staging area
@@ -418,7 +435,7 @@ staging area (cache)
     ^
     |   add
 
-work directory     &lt;- init
+work directory     <- init
 ```
 
 A single file may be represented att all levels
@@ -426,9 +443,9 @@ A single file may be represented att all levels
 
 The basic work cycle is edit-add-commit
 ```
-    $ vim &lt;file&gt; #edit
-    $ git add &lt;file&gt; #adds new file or saves latest changes
-    $ git commit -m &lt;message&gt; &lt;file&gt; #save permanently in repository
+    $ vim <file> #edit
+    $ git add <file> #adds new file or saves latest changes
+    $ git commit -m <message> <file> #save permanently in repository
 ```
 
 ---
@@ -439,7 +456,7 @@ To see the commit history of the project files
 ```
     $ git log
     commit edf197e2974f9365abe3a52e6bde5ae0495d5016
-    Author: First Last &lt;first.last@isp.com&gt;
+    Author: First Last <first.last@isp.com>
     Date:   Thu Oct 16 17:32:45 2014 +0200
 
 	First hello
@@ -451,8 +468,8 @@ To see the commit history of the project files
 
 * Consider a modified file
 ```
-    $ cat &lt;&lt; EOF &gt; hello.py
-    print &#34;Hello there world!&#34;
+    $ cat << EOF > hello.py
+    print "Hello there world!"
     EOF
 ```
 * git now recognizes this tracked file as modified
@@ -460,12 +477,12 @@ To see the commit history of the project files
     $ git status
     On branch master
     Changes not staged for commit:
-      (use &#34;git add &lt;file&gt;...&#34; to update what will be committed)
-      (use &#34;git checkout -- &lt;file&gt;...&#34; to discard changes in working directory)
+      (use "git add <file>..." to update what will be committed)
+      (use "git checkout -- <file>..." to discard changes in working directory)
 
 	    modified:   hello.py
 
-    no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)
+    no changes added to commit (use "git add" and/or "git commit -a")
 ```
 ```
     $ git diff
@@ -474,15 +491,15 @@ To see the commit history of the project files
     --- a/hello.py
     +++ b/hello.py
     @@ -1 +1 @@
-    -print &#34;Hello world!&#34;
-    +print &#34;Hello there world!&#34;
+    -print "Hello world!"
+    +print "Hello there world!"
 ```
 ---
 ```
     $ git difftool
 ```
 
-&lt;img src=&#34;img/git_difftool.png&#34;/&gt;
+<img src="img/git_difftool.png"/>
 
 ---
 
@@ -491,20 +508,20 @@ To see the commit history of the project files
     $ git add hello.py
 ```
 ```bash
-    $ git commit -m &#34;Change greeting&#34;
+    $ git commit -m "Change greeting"
     [master f7efe62] Change greeting
      1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 ```bash
     $ git log
     commit f7efe62016fcd70fbdbd2232f9086bfd96aaf413
-    Author: First Last &lt;first.last@isp.com&gt;
+    Author: First Last <first.last@isp.com>
     Date:   Thu Oct 16 18:32:41 2014 +0200
 
         Change greeting
 
     commit edf197e2974f9365abe3a52e6bde5ae0495d5016
-    Author: First Last &lt;first.last@isp.com&gt;
+    Author: First Last <first.last@isp.com>
     Date:   Thu Oct 16 17:32:45 2014 +0200
 
         First hello
@@ -516,7 +533,7 @@ To see the commit history of the project files
 ```
     $ gitg
 ```
-&lt;center&gt;&lt;img src=&#34;img/gitg.png&#34; height=&#34;480&#34;/&gt;&lt;/center&gt;
+<center><img src="img/gitg.png" height="480"/></center>
 
 ---
 
@@ -524,9 +541,9 @@ To see the commit history of the project files
 * To retreive old verions, use checkout with the commit string
 ```
     $ git checkout edf197
-    Note: checking out &#39;edf197&#39;.
+    Note: checking out 'edf197'.
 
-    You are in &#39;detached HEAD&#39; state. You can look around, make experimental
+    You are in 'detached HEAD' state. You can look around, make experimental
     changes and commit them, and you can discard any commits you make in this
     state without impacting any branches by performing another checkout.
 
@@ -539,7 +556,7 @@ To see the commit history of the project files
 ```
 ```
     $ cat hello.py
-    print &#34;Hello world!&#34;
+    print "Hello world!"
 ```
 
 ---
@@ -555,7 +572,7 @@ To see the commit history of the project files
 ```
     $ git checkout master
     Previous HEAD position was edf197e... First hello
-    Switched to branch &#39;master&#39;
+    Switched to branch 'master'
 ```
 
 ```
@@ -566,7 +583,7 @@ To see the commit history of the project files
 
 ```
     $ cat hello.py
-    print &#34;Hello there world!&#34;
+    print "Hello there world!"
 ```
 
 ---
@@ -581,7 +598,7 @@ To see the commit history of the project files
 * git push to remote
 
 ```
-repository (.git)  &lt;-&gt;   remote
+repository (.git)  <->   remote
                 pull,push
 
     ^
@@ -592,7 +609,7 @@ staging area (cache)
     ^
     |   add
 
-work directory     &lt;- init, clone
+work directory     <- init, clone
 ```
 
 ---
@@ -624,7 +641,7 @@ work directory     &lt;- init, clone
     Writing objects: 100% (6/6), 473 bytes | 0 bytes/s, done.
     Total 6 (delta 0), reused 0 (delta 0)
     To /home/olav/Dropbox/proj.git
-     * [new branch]      master -&gt; master
+     * [new branch]      master -> master
     Branch master set up to track remote branch master from dropbox.
 ```
 
@@ -635,8 +652,8 @@ work directory     &lt;- init, clone
 * Make another local change
 
 ```
-    $ cat &lt;&lt; EOF &gt; hello.py
-    print &#34;HELLO THERE WORLD!&#34;
+    $ cat << EOF > hello.py
+    print "HELLO THERE WORLD!"
     EOF
 ```
 
@@ -645,7 +662,7 @@ work directory     &lt;- init, clone
 ```
 
 ```
-    $ git commit -m &#34;Capitalize&#34;
+    $ git commit -m "Capitalize"
     [master cb05b3f] Capitalize
      1 file changed, 1 insertion(+), 1 deletion(-)
 ```
@@ -658,8 +675,8 @@ work directory     &lt;- init, clone
 ```
     $ git status
     On branch master
-    Your branch is ahead of &#39;origin/master&#39; by 1 commit.
-      (use &#34;git push&#34; to publish your local commits)
+    Your branch is ahead of 'origin/master' by 1 commit.
+      (use "git push" to publish your local commits)
 
     nothing to commit, working directory clean
 ```
@@ -671,7 +688,7 @@ work directory     &lt;- init, clone
     Writing objects: 100% (3/3), 269 bytes | 0 bytes/s, done.
     Total 3 (delta 0), reused 0 (delta 0)
     To /home/olav/Dropbox/proj.git
-       f7efe62..cb05b3f  master -&gt; master
+       f7efe62..cb05b3f  master -> master
 ```
 
 ---
@@ -680,13 +697,13 @@ work directory     &lt;- init, clone
 
 * With access to the same shared file system
 ```
-    |Other&gt; git clone ~/Dropbox/proj.git
-    Cloning into &#39;proj&#39;...
+    |Other> git clone ~/Dropbox/proj.git
+    Cloning into 'proj'...
     done.
-    |Other&gt; cd proj
+    |Other> cd proj
 ```
 * work on remote
-    - edit -&gt; add -&gt; commit -&gt; push
+    - edit -> add -> commit -> push
 
 ---
 
@@ -702,7 +719,7 @@ work directory     &lt;- init, clone
     remote: Total 3 (delta 0), reused 0 (delta 0)
     Unpacking objects: 100% (3/3), done.
     From /home/olav/Dropbox/proj
-       cb05b3f..d5fe073  master     -&gt; origin/master
+       cb05b3f..d5fe073  master     -> origin/master
     Updating cb05b3f..d5fe073
     Fast-forward
      hello.py | 2 +-
@@ -760,20 +777,9 @@ work directory     &lt;- init, clone
     <script src="/git/refreeze/js/high.js" type="text/javascript"></script>
     <script type="text/javascript">
       var slideshow = remark.create({
-          highlightStyle: 'sunburst',
+          highlightStyle: 'gmd',
           highlightLanguage: 'remark'
         }) ;
-    </script>
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-44561333-1']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
     </script>
   </body>
 </html>
